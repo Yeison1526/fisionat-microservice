@@ -1,0 +1,21 @@
+﻿### FisioNat Microservice (REST Client)
+
+@baseUrl = http://localhost:3001
+
+### Health
+GET {{baseUrl}}/
+Accept: application/json
+
+### Solicitud de contacto (bienvenida + notificación)
+POST {{baseUrl}}/mail/welcome
+Content-Type: application/json
+
+{
+  "name": "",
+  "lastName": "",
+  "email": "",
+  "cellphone": "",
+  "subject": "",
+  "message": ""
+}
+
