@@ -11,11 +11,11 @@ POST {{baseUrl}}/mail/welcome
 Content-Type: application/json
 
 {
-  "name": "Yeison",
-  "lastName": "Tatis Campillo",
-  "email": "yeisontatiscampillo1526@gmail.com",
-  "cellphone": "+57 300 000 0000",
-  "subject": "Valoración de fisioterapia",
-  "message": "Hola, me gustaría agendar una valoración por dolor lumbar."
+  "name": "",
+  "lastName": "",
+  "email": "",
+  "cellphone": "",
+  "subject": "",
+  "message": ""
 }
 
