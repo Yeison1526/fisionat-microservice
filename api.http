@@ -1,0 +1,21 @@
+﻿### FisioNat Microservice (REST Client)
+
+@baseUrl = http://localhost:3001
+
+### Health
+GET {{baseUrl}}/
+Accept: application/json
+
+### Solicitud de contacto (bienvenida + notificación)
+POST {{baseUrl}}/mail/welcome
+Content-Type: application/json
+
+{
+  "name": "Yeison",
+  "lastName": "Tatis Campillo",
+  "email": "yeisontatiscampillo1526@gmail.com",
+  "cellphone": "+57 300 000 0000",
+  "subject": "Valoración de fisioterapia",
+  "message": "Hola, me gustaría agendar una valoración por dolor lumbar."
+}
+
