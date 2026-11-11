@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import {
   IsEmail,
@@ -10,6 +11,12 @@ import {
 import { EmailDomainExists } from '../validators/email-domain.validator';
 
 export class ContactRequestDto {
+  @ApiProperty({
+    description: 'Nombre del contacto.',
+    example: 'Ana',
+    minLength: 2,
+    maxLength: 100,
+  })
   @Transform(({ value }: { value: unknown }) =>
     typeof value === 'string' ? value.trim() : value,
   )
@@ -19,6 +26,12 @@ export class ContactRequestDto {
   @MaxLength(100)
   name: string;
 
+  @ApiProperty({
+    description: 'Apellidos del contacto.',
+    example: 'Pérez Gómez',
+    minLength: 2,
+    maxLength: 100,
+  })
   @Transform(({ value }: { value: unknown }) =>
     typeof value === 'string' ? value.trim() : value,
   )
@@ -28,6 +41,12 @@ export class ContactRequestDto {
   @MaxLength(100)
   lastName: string;
 
+  @ApiProperty({
+    description: 'Correo electrónico del contacto.',
+    example: 'ana.perez@example.com',
+    format: 'email',
+    maxLength: 254,
+  })
   @Transform(({ value }: { value: unknown }) =>
     typeof value === 'string' ? value.trim().toLowerCase() : value,
   )
@@ -40,6 +59,11 @@ export class ContactRequestDto {
   @EmailDomainExists({ message: 'El dominio del correo no existe o no puede recibir correos' })
   email: string;
 
+  @ApiProperty({
+    description: 'Número de celular o teléfono de contacto.',
+    example: '+57 300 123 4567',
+    pattern: '^[+\\d][\\d\\s\\-()]{6,19}$',
+  })
   @Transform(({ value }: { value: unknown }) =>
     typeof value === 'string' ? value.trim() : value,
   )
@@ -50,6 +74,11 @@ export class ContactRequestDto {
   })
   cellphone: string;
 
+  @ApiProperty({
+    description: 'Servicio de interés o asunto de la solicitud.',
+    example: 'Terapia física para dolor lumbar',
+    maxLength: 255,
+  })
   @Transform(({ value }: { value: unknown }) =>
     typeof value === 'string' ? value.trim() : value,
   )
@@ -58,6 +87,12 @@ export class ContactRequestDto {
   @MaxLength(255)
   subject: string;
 
+  @ApiProperty({
+    description: 'Descripción del caso o mensaje del contacto.',
+    example: 'Tengo dolor en la zona lumbar desde hace dos semanas y quisiera agendar una valoración.',
+    minLength: 5,
+    maxLength: 2000,
+  })
   @Transform(({ value }: { value: unknown }) =>
     typeof value === 'string' ? value.trim() : value,
   )
