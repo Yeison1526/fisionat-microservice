@@ -1,6 +1,6 @@
 ﻿### FisioNat Microservice (REST Client)
 
-@baseUrl = http://localhost:3001
+@baseUrl = http://localhost:3001/api/v1
 
 ### Solicitud de contacto (bienvenida + notificación)
 POST {{baseUrl}}/mail/welcome
