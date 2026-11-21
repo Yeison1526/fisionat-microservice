@@ -3,6 +3,12 @@ export interface WelcomeTemplateParams {
   subject?: string;
 }
 
+// Debe coincidir con el botón flotante de WhatsApp del frontend.
+const WHATSAPP_NUMBER = '573008061718';
+const WHATSAPP_DISPLAY_NUMBER = '+57 300 806 1718';
+const WHATSAPP_MESSAGE = 'Hola FisioNat, quiero agendar una consulta virtual.';
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
 export function buildWelcomeHtml({ name, subject }: WelcomeTemplateParams): string {
   const safeName = name.trim();
   const safeSubject = subject?.trim() ?? '';
@@ -51,7 +57,7 @@ export function buildWelcomeHtml({ name, subject }: WelcomeTemplateParams): stri
                   <td style="padding:22px;">
                     <p style="margin:0 0 6px;color:#595959;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;">¿Qué sigue ahora?</p>
                     <p style="margin:0 0 8px;color:#1a1a1a;font-size:14px;line-height:1.7;">Un especialista de FisioNat  se pondrá en contacto en un plazo de 24 a 48 horas hábiles para coordinar la valoración virtual.</p>
-                    <p style="margin:0;color:#1a1a1a;font-size:13px;line-height:1.7;">Mientras tanto, podés escribirnos a <a href="mailto:fisionat1416@gmail.com" style="color:#1a1a1a;">fisionat1416@gmail.com</a>.</p>
+                    <p style="margin:0;color:#1a1a1a;font-size:13px;line-height:1.7;">Mientras tanto, podés escribirnos por WhatsApp al <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" style="color:#1a1a1a;">${WHATSAPP_DISPLAY_NUMBER}</a>.</p>
                   </td>
                 </tr>
               </table>
@@ -62,7 +68,7 @@ export function buildWelcomeHtml({ name, subject }: WelcomeTemplateParams): stri
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
                 <tr>
                   <td align="center" bgcolor="#F79FB5" style="border-radius:50px;background-color:#F79FB5;background-image:linear-gradient(135deg,#F79FB5 0%,#FDB5C7 100%);box-shadow:0 6px 20px rgba(247,159,181,0.35);">
-                    <a href="mailto:fisionat1416@gmail.com" target="_blank" style="display:inline-block;padding:14px 32px;font-family:'Roboto',Arial,sans-serif;font-size:15px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:50px;">Hablar con nuestro equipo</a>
+                    <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 32px;font-family:'Roboto',Arial,sans-serif;font-size:15px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:50px;">Hablar con un asesor</a>
                   </td>
                 </tr>
               </table>
@@ -78,7 +84,7 @@ export function buildWelcomeHtml({ name, subject }: WelcomeTemplateParams): stri
           <tr>
             <td style="background-color:#fafafa;padding:24px;text-align:center;">
               <p style="margin:0 0 6px;color:#595959;font-size:12px;line-height:1.6;">© 2026 FisioNat  S.A. — Rehabilitación Virtual. Todos los derechos reservados.</p>
-              <p style="margin:0;color:#595959;font-size:12px;line-height:1.6;">fisionat1416@gmail.com | 661619</p>
+              <p style="margin:0;color:#595959;font-size:12px;line-height:1.6;">fisionat1416@gmail.com | <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" style="color:#595959;text-decoration:none;">${WHATSAPP_DISPLAY_NUMBER}</a></p>
             </td>
           </tr>
         </table>
