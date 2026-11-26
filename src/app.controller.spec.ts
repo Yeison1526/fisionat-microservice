@@ -17,4 +17,11 @@ describe('AppController', () => {
   it('should be defined', () => {
     expect(appController).toBeDefined();
   });
+
+  it('should report a healthy status', () => {
+    const health = appController.health();
+
+    expect(health.status).toBe('ok');
+    expect(typeof health.timestamp).toBe('string');
+  });
 });
